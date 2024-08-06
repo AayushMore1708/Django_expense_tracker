@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'expenses/css/style.css' %}">
+    <script src="{% static 'expenses/js/script.js' %}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'expense_list' %}">Expense List</a></li>
+                <li><a href="{% url 'add_expense' %}">Add Expense</a></li>
+                <li><a href="{% url 'subtract_expense' %}">Subtract Expense</a></li>
+
+                <li><a href="{% url 'backup_expenses' %}">Backup Expenses</a></li>
+                <li><a href="{% url 'restore_expenses' %}">Restore Expenses</a></li>
+            </ul>
+        </nav>
+        <div id="expense-list"></div>
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
